@@ -87,3 +87,42 @@ WHERE followers.followed_id = ? AND followers.follower_id = user.id) AS anon_1]
 2020-07-17 14:21:50,339 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
 2020-07-17 14:22:45,494 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
 2020-07-17 14:30:56,445 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 14:34:38,985 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 14:35:52,448 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 14:44:15,769 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 14:44:54,354 ERROR: Exception on /explore [GET] [in c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py:1892]
+Traceback (most recent call last):
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Dev\FlaskMegaTutorial\app\routes.py", line 148, in explore
+    return render_template('index.html', title='Explore', posts=posts)
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Dev\FlaskMegaTutorial\app\templates\index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Dev\FlaskMegaTutorial\app\templates\base.html", line 30, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Dev\FlaskMegaTutorial\app\templates\index.html", line 18, in block "content"
+    {% for post in posts %}
+TypeError: 'Pagination' object is not iterable
+2020-07-17 14:45:27,971 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
