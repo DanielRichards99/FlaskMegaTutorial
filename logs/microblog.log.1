@@ -1,4 +1,37 @@
-2020-07-17 13:08:06,016 ERROR: Exception on /user/dan [GET] [in c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py:1892]
+2020-07-16 14:02:18,359 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-16 14:02:31,606 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-16 14:07:56,368 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-16 14:08:20,960 ERROR: Exception on /edit_profile [GET] [in c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py:1892]
+Traceback (most recent call last):
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Dev\FlaskMegaTutorial\app\routes.py", line 86, in edit_profile
+    form = EditProfileForm(current_user.username)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\wtforms\form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "C:\Dev\FlaskMegaTutorial\app\forms.py", line 36, in __init__
+    super(EditProfileForm, self).__init__(*ags, **kwargs)
+NameError: name 'ags' is not defined
+2020-07-17 11:47:44,589 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 12:06:55,109 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 12:07:59,649 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 12:09:54,780 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 12:11:29,398 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 12:14:19,777 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 13:07:31,473 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 13:07:47,655 ERROR: Exception on /user/susan [GET] [in c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py:1892]
 Traceback (most recent call last):
   File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1278, in _execute_context
     cursor, statement, parameters, context
@@ -76,11 +109,5 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: follo
 FROM (SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
 FROM user, followers 
 WHERE followers.followed_id = ? AND followers.follower_id = user.id) AS anon_1]
-[parameters: (2,)]
+[parameters: (1,)]
 (Background on this error at: http://sqlalche.me/e/13/e3q8)
-2020-07-17 13:10:20,098 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:12:50,510 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:12:57,869 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:13:06,175 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:14:00,398 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:14:10,745 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
