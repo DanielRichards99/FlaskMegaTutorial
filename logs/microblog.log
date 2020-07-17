@@ -18,3 +18,4 @@ Traceback (most recent call last):
     page = request.args.get('page', 1, type=init)
 NameError: name 'init' is not defined
 2020-07-17 15:06:59,744 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 15:08:20,090 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
