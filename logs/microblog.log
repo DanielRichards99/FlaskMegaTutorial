@@ -126,3 +126,5 @@ Traceback (most recent call last):
     {% for post in posts %}
 TypeError: 'Pagination' object is not iterable
 2020-07-17 14:45:27,971 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 14:55:27,056 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 14:56:30,886 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
