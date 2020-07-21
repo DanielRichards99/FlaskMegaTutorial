@@ -1,96 +1,4 @@
-2020-07-17 13:08:06,016 ERROR: Exception on /user/dan [GET] [in c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py:1892]
-Traceback (most recent call last):
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1278, in _execute_context
-    cursor, statement, parameters, context
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: followers
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Dev\FlaskMegaTutorial\app\routes.py", line 83, in user
-    return render_template('user.html', user=user, posts=posts, form = form)
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\templating.py", line 140, in render_template
-    ctx.app,
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Dev\FlaskMegaTutorial\app\templates\user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "C:\Dev\FlaskMegaTutorial\app\templates\base.html", line 29, in top-level template code
-    {% block content %}{% endblock %}
-  File "C:\Dev\FlaskMegaTutorial\app\templates\user.html", line 11, in block "content"
-    <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\orm\dynamic.py", line 335, in count
-    return self._clone(sess).count()
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3771, in count
-    return self.from_self(col).scalar()
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3491, in scalar
-    ret = self.one()
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3458, in one
-    ret = self.one_or_none()
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3427, in one_or_none
-    ret = list(self)
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3503, in __iter__
-    return self._execute_and_instances(context)
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3528, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1014, in execute
-    return meth(self, multiparams, params)
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1133, in _execute_clauseelement
-    distilled_params,
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1318, in _execute_context
-    e, statement, parameters, cursor, context
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1512, in _handle_dbapi_exception
-    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
-    raise exception
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1278, in _execute_context
-    cursor, statement, parameters, context
-  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: followers
-[SQL: SELECT count(*) AS count_1 
-FROM (SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
-FROM user, followers 
-WHERE followers.followed_id = ? AND followers.follower_id = user.id) AS anon_1]
-[parameters: (2,)]
-(Background on this error at: http://sqlalche.me/e/13/e3q8)
-2020-07-17 13:10:20,098 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:12:50,510 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:12:57,869 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:13:06,175 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:14:00,398 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:14:10,745 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:21:50,339 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:22:45,494 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:30:56,445 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:34:38,985 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:35:52,448 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:44:15,769 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:44:54,354 ERROR: Exception on /explore [GET] [in c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py:1892]
+2020-07-17 15:06:04,490 ERROR: Exception on /user/dan [GET] [in c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py:1892]
 Traceback (most recent call last):
   File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -106,26 +14,90 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Dev\FlaskMegaTutorial\app\routes.py", line 148, in explore
-    return render_template('index.html', title='Explore', posts=posts)
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\templating.py", line 140, in render_template
-    ctx.app,
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\jinja2\environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+  File "C:\Dev\FlaskMegaTutorial\app\routes.py", line 86, in user
+    page = request.args.get('page', 1, type=init)
+NameError: name 'init' is not defined
+2020-07-17 15:06:59,744 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 15:08:20,090 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-20 13:10:58,432 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:50]
+2020-07-20 13:18:24,606 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:50]
+2020-07-20 13:22:31,194 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:50]
+2020-07-20 13:29:59,146 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:50]
+2020-07-20 13:39:47,894 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:50]
+2020-07-20 13:42:17,646 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:50]
+2020-07-20 13:51:51,242 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:50]
+2020-07-20 13:53:41,263 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:50]
+2020-07-20 15:00:44,649 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:50]
+2020-07-20 15:01:02,688 ERROR: Exception on /reset_password_request [GET] [in c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py:1892]
+Traceback (most recent call last):
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Dev\FlaskMegaTutorial\app\routes.py", line 180, in reset_password_request
+    title='Reset Password', form=form)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\environment.py", line 930, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\environment.py", line 883, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\environment.py", line 857, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\environment.py", line 638, in compile
+    self.handle_exception(source=source_hint)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
     reraise(*rewrite_traceback_stack(source=source))
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
     raise value.with_traceback(tb)
-  File "C:\Dev\FlaskMegaTutorial\app\templates\index.html", line 1, in top-level template code
+  File "C:\Dev\FlaskMegaTutorial\app\templates\reset_password_request.html", line 14, in template
+    <p>{{ form.submit() }}</p>
+jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.
+2020-07-20 15:01:41,035 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:50]
+2020-07-21 09:25:19,217 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:52]
+2020-07-21 09:25:41,988 ERROR: Exception on /login [GET] [in c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py:1892]
+Traceback (most recent call last):
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Dev\FlaskMegaTutorial\app\routes.py", line 65, in login
+    return render_template('login.html', title='Sign In', form=form)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Dev\FlaskMegaTutorial\app\templates\login.html", line 1, in top-level template code
     {% extends "base.html" %}
-  File "C:\Dev\FlaskMegaTutorial\app\templates\base.html", line 30, in top-level template code
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Dev\FlaskMegaTutorial\app\templates\base.html", line 98, in template
     {% block content %}{% endblock %}
-  File "C:\Dev\FlaskMegaTutorial\app\templates\index.html", line 18, in block "content"
-    {% for post in posts %}
-TypeError: 'Pagination' object is not iterable
-2020-07-17 14:45:27,971 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:55:27,056 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:56:30,886 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 15:05:57,790 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+jinja2.exceptions.TemplateAssertionError: block 'content' defined twice
+2020-07-21 09:27:13,677 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:52]

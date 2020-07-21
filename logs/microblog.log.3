@@ -1,4 +1,37 @@
-2020-07-17 13:08:06,016 ERROR: Exception on /user/dan [GET] [in c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py:1892]
+2020-07-16 14:02:18,359 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-16 14:02:31,606 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-16 14:07:56,368 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-16 14:08:20,960 ERROR: Exception on /edit_profile [GET] [in c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py:1892]
+Traceback (most recent call last):
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Dev\FlaskMegaTutorial\app\routes.py", line 86, in edit_profile
+    form = EditProfileForm(current_user.username)
+  File "c:\dev\flaskmegatutorial\venv\lib\site-packages\wtforms\form.py", line 208, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "C:\Dev\FlaskMegaTutorial\app\forms.py", line 36, in __init__
+    super(EditProfileForm, self).__init__(*ags, **kwargs)
+NameError: name 'ags' is not defined
+2020-07-17 11:47:44,589 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 12:06:55,109 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 12:07:59,649 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 12:09:54,780 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 12:11:29,398 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 12:14:19,777 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 13:07:31,473 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
+2020-07-17 13:07:47,655 ERROR: Exception on /user/susan [GET] [in c:\dev\flaskmegatutorial\venv\lib\site-packages\flask\app.py:1892]
 Traceback (most recent call last):
   File "c:\dev\flaskmegatutorial\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1278, in _execute_context
     cursor, statement, parameters, context
@@ -76,56 +109,5 @@ sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: follo
 FROM (SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
 FROM user, followers 
 WHERE followers.followed_id = ? AND followers.follower_id = user.id) AS anon_1]
-[parameters: (2,)]
+[parameters: (1,)]
 (Background on this error at: http://sqlalche.me/e/13/e3q8)
-2020-07-17 13:10:20,098 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:12:50,510 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:12:57,869 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:13:06,175 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:14:00,398 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 13:14:10,745 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:21:50,339 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:22:45,494 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:30:56,445 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:34:38,985 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:35:52,448 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:44:15,769 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:44:54,354 ERROR: Exception on /explore [GET] [in c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py:1892]
-Traceback (most recent call last):
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Dev\FlaskMegaTutorial\app\routes.py", line 148, in explore
-    return render_template('index.html', title='Explore', posts=posts)
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\templating.py", line 140, in render_template
-    ctx.app,
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\jinja2\environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "c:\users\cs199dr\appdata\local\programs\python\python36\lib\site-packages\jinja2\_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Dev\FlaskMegaTutorial\app\templates\index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "C:\Dev\FlaskMegaTutorial\app\templates\base.html", line 30, in top-level template code
-    {% block content %}{% endblock %}
-  File "C:\Dev\FlaskMegaTutorial\app\templates\index.html", line 18, in block "content"
-    {% for post in posts %}
-TypeError: 'Pagination' object is not iterable
-2020-07-17 14:45:27,971 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:55:27,056 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 14:56:30,886 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
-2020-07-17 15:05:57,790 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:47]
