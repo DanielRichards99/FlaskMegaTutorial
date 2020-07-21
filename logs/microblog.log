@@ -50,3 +50,5 @@ Traceback (most recent call last):
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.BuildError: Could not build url for endpoint 'main.index'. Did you mean 'index' instead?
 2020-07-21 09:31:42,919 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:52]
+2020-07-21 09:53:26,656 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:54]
+2020-07-21 09:56:22,709 INFO: Microblog startup [in C:\Dev\FlaskMegaTutorial\app\__init__.py:54]
